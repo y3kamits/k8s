@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydeployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontnginx
+  template:
+    metadata:
+      name: nginxapp
+      labels:
+        app: frontnginx
+    spec:
+      containers:
+        - name: mynginxapp
+          image: 'stacksimplify/kubenginx:1.0.0'
+          ports:
+            - containerPort: 80

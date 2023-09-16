@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backendapp-deployment
+  labels:
+    app: backendapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backendapp
+  template:
+    metadata:
+      labels:
+        app: backendapp
+    spec:
+      containers:
+        - name: backendapp
+          image: stacksimplify/kubenginx:1.0.0
+          ports:
+            - containerPort: 80
+          env:
+            - name: MYSQL_HOST
+              value: mysql-cluster-ip-service
+            - name: MYSQL_USER
+              value: root
+            - name: MYSQL_PASSWORD
+              value: password
+            - name: MYSQL_DB
+              value: myapp

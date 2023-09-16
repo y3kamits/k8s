@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginxpod
+  labels:
+    app: mynginx
+spec:
+  containers:
+    - name: mynginxcontainer
+      image: stacksimplify/kubenginx:1.0.0
+      ports:
+        - containerPort: 80
