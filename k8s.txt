@@ -1,1 +1,7 @@
 This repo is to practice Kubernetes on AKS
+
+To login to AZ use below
+
+az login OR az login --use-device-code
+
+az aks get-credentials --resource-group ResourceGroupK8S --name MyK8SCluster
